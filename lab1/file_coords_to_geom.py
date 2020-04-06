@@ -10,3 +10,5 @@ for index, row in dF.iterrows():
 
 print(LineString(origPoints))
 print(LineString(destPoints))
+
+print(LineString(origPoints).distance(LineString(destPoints)))
