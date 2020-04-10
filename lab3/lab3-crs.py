@@ -18,19 +18,19 @@ print("Перепроектирированя геометрия,с замено
 print(data_proj['geometry'].head())
 print(data_proj.crs)
 # Plot the WGS84
-data.plot(markersize=6, color="red");
+data.plot(markersize=6, color="red")
 
 # Add title
-plt.title("WGS84 проекция");
+plt.title("WGS84 проекция")
 
 plt.show()
 plt.tight_layout()
 
 # ETRS GK-25 проекция
-data_proj.plot(markersize=6, color="blue");
+data_proj.plot(markersize=6, color="blue")
 
 # Add title
-plt.title("ETRS GK-25 проекция");
+plt.title("ETRS GK-25 проекция")
 
 plt.show()
 plt.tight_layout()

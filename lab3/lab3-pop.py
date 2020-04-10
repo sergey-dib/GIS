@@ -33,6 +33,6 @@ outfp = r"addresses_pop15_epsg3979.shp"
 join.to_file(outfp)
 
 # join.plot(column='pop15', cmap="Reds", markersize=7, scheme='natural_breaks', legend=True)
-join.plot(column='pop15', cmap="Reds", markersize=7, scheme='natural_breaks', legend=True);
+join.plot(column='pop15', cmap="Reds", markersize=7, scheme='natural_breaks', legend=True)
 plt.title("Количество жителей, живущих рядом с точкой")
 plt.show()
