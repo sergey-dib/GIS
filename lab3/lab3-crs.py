@@ -24,6 +24,7 @@ data.plot(markersize=6, color="red");
 plt.title("WGS84 проекция");
 
 plt.show()
+plt.tight_layout()
 
 # ETRS GK-25 проекция
 data_proj.plot(markersize=6, color="blue");
@@ -32,6 +33,7 @@ data_proj.plot(markersize=6, color="blue");
 plt.title("ETRS GK-25 проекция");
 
 plt.show()
+plt.tight_layout()
 
 # Изменение системы координат
 data_proj.crs = from_epsg(3879)
