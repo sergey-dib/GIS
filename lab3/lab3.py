@@ -28,7 +28,7 @@ print(join_buf.head())
 # объединение
 join_core = gpd.overlay(join, join_buf, how='intersection')
 # Сохранение в файл
-outfp = r"addresses.shp"
+outfp = r"./shp/addresses.shp"
 join_core.to_file(outfp)
 
 join.plot()

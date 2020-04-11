@@ -16,7 +16,7 @@ print(pop.tail(2))
 
 # pop_proj = pop.copy()
 # pop_proj['geometry'] = pop_proj['geometry'].to_crs(epsg=3879)
-addr_fp = r"addresses_epsg3879.shp"
+addr_fp = r"./shp/addresses_epsg3879.shp"
 addresses = gpd.read_file(addr_fp)
 
 print(addresses.head(2))
@@ -27,7 +27,7 @@ print(addresses.crs == pop.crs)
 join = gpd.sjoin(addresses, pop, how="inner", op="within")
 print(join.head())
 
-outfp = r"addresses_pop15_epsg3979.shp"
+outfp = r"./shp/addresses_pop15_epsg3979.shp"
 
 # Save to disk
 join.to_file(outfp)

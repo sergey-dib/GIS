@@ -3,7 +3,7 @@ from fiona.crs import from_epsg
 import matplotlib.pyplot as plt
 
 # Чтение файла
-fp = "addresses.shp"
+fp = "./shp/addresses.shp"
 
 data = gpd.read_file(fp)
 
@@ -46,7 +46,7 @@ print(data_proj.crs)
 
 
 # Сохранение файлай
-outfp = r"addresses_epsg3879.shp"
+outfp = r"./shp/addresses_epsg3879.shp"
 
 # Save to disk
 data_proj.to_file(outfp)
