@@ -20,11 +20,20 @@ print(geo.head(2))
 join = geo.join(data)
 print(join.head())
 
+join_buf = join.copy()
+join_buf['geometry'] = join_buf.buffer(5)
+print("buffer")
+print(join_buf.head())
+
+# объединение
+join_core = gpd.overlay(join, join_buf, how='intersection')
 # Сохранение в файл
 outfp = r"addresses.shp"
-join.to_file(outfp)
+join_core.to_file(outfp)
 
 join.plot()
+join_buf.plot()
+join_core.plot()
 
 import matplotlib.pyplot as plt
 
