@@ -23,9 +23,7 @@ dt_columns = ['pt_r_tt', 'from_id', 'to_id']
 
 column_list = []
 
-for i in  range(len(list_path)):
-    # create list of selected rows
-    # read file with delimiter ';'
+for i in range(len(list_path)):
     # print(list_name[i])
     data = pd.read_csv(list_path[i], delimiter=';')
     # column_name = dt_columns[0] + "_" + str(data["to_id"][0])
@@ -46,6 +44,7 @@ classifications.columns = ['nb_min_pt_r_tt']
 
 acc = gdata.join(classifications)
 
+# часи подорожі стовпця
 acc.plot(column="nb_min_pt_r_tt", linewidth=0, legend=True)
 plt.title('min_time_pt')
 plt.tight_layout()
