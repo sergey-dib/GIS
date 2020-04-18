@@ -42,8 +42,6 @@ classifier = mc.NaturalBreaks.make(k=n_classes)
 
 classifications = gdata[['min_time_pt']].apply(classifier)
 
-# output(classifications)
-
 classifications.columns = ['nb_min_pt_r_tt']
 
 acc = gdata.join(classifications)
