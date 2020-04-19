@@ -5,8 +5,9 @@ from fiona.crs import from_epsg
 
 # Чтение файла
 fp = r"addresses.txt"
+fp_sh = r"shopping_centers.txt"
 
-data = pd.read_csv(fp, sep=';')
+data = pd.read_csv(fp_sh, sep=';')
 print(data.head())
 
 # Импортировать инструмент геокодирования
