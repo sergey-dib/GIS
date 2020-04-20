@@ -34,7 +34,7 @@ for i in range(len(list_path)):
 gdata["min_time_pt"] = gdata[column_list].min(axis=1)
 gdata["dominant_service"] = gdata[column_list].idxmin(axis=1)
 
-n_classes = 3
+n_classes = 7
 
 classifier = mc.NaturalBreaks.make(k=n_classes)
 
