@@ -77,6 +77,6 @@ m_df = metro.drop('geometry', axis=1).copy()
 msource = ColumnDataSource(m_df)
 p = figure(title="A map of the Helsinki metro")
 p.multi_line('x', 'y', source=msource, color='red', line_width=3)
-outfp = "/home/geo/data/metro_map.html"
+outfp = "./bokeh/metro_map.html"
 save(p, outfp)
 
