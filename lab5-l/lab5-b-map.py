@@ -8,6 +8,14 @@ def getPointCoords(row, geom, coord_type):
     elif coord_type == 'y':
         return row[geom].y
 
+
+def getLineCoords(row, geom, coord_type):
+    """Returns a list of coordinates ('x' or 'y') of a LineString geometry"""
+    if coord_type == 'x':
+        return list( row[geom].coords.xy[0] )
+    elif coord_type == 'y':
+        return list( row[geom].coords.xy[1] )
+
 points_fp = r"./shp/addresses.shp"
 
 points = gpd.read_file(points_fp)
@@ -52,4 +60,23 @@ p.add_tools(my_hover)
 outfp = r"./bokeh/point_map_hover.html"
 save(p, outfp)
 
+
+metro_fp = r"./shp/metro.shp"
+
+metro = gpd.read_file(metro_fp)
+
+print(metro.head())
+
+# Вычисление коорднат для линии
+metro['x'] = metro.apply(getLineCoords, geom='geometry', coord_type='x', axis=1)
+metro['y'] = metro.apply(getLineCoords, geom='geometry', coord_type='y', axis=1)
+
+print(metro.head())
+
+m_df = metro.drop('geometry', axis=1).copy()
+msource = ColumnDataSource(m_df)
+p = figure(title="A map of the Helsinki metro")
+p.multi_line('x', 'y', source=msource, color='red', line_width=3)
+outfp = "/home/geo/data/metro_map.html"
+save(p, outfp)
 
